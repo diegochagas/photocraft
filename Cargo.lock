@@ -4764,6 +4764,7 @@ dependencies = [
  "image-webp",
  "jpeg-encoder",
  "photocraft-heif",
+ "photocraft-jxl",
  "png 0.18.1",
  "proptest",
  "rayon",
@@ -4939,6 +4940,13 @@ dependencies = [
 [[package]]
 name = "photocraft-ipp"
 version = "0.15.1"
+
+[[package]]
+name = "photocraft-jxl"
+version = "0.15.1"
+dependencies = [
+ "jxl-oxide",
+]
 
 [[package]]
 name = "photocraft-ops"
