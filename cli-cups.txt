@@ -1,0 +1,16 @@
+$ photocraft-cli commands --filter file.print
+file.print                                   Print…                           File
+file.print.printers                          Printers                         
+file.printOneCopy                            Print One Copy                   File
+
+$ photocraft-cli run --new ... --cmd file.print.printers   (this machine: CUPS running, no printer set up)
+error: `file.print.printers`: print server refused (0x0406): No destinations added.
+
+$ ... --cmd file.print   (no printer, no app spooler in the headless CLI)
+error: `file.print`: print server refused (0x0406): No destinations added.
+
+$ ... --cmd file.print --params {"dryRun":true,"printer":"Office","copies":2}
+{"command":"file.print","result":{"backend":null,"bytes":1546,"color":{"colorHandling":"printerManages"},"command":["lp","-d","Office","-n","2","-t","Print Me","/tmp/Print Me-print-621318-0.pdf"],"copies":2,"imageRect":[156.0,321.0,300.0,150.0],"paper":[612.0,792.0],"pdf":"/tmp/Print Me-print-621318-0.pdf","scale":100.0,"sent":false,"spooler":null}}
+
+$ ... --cmd file.print.printers --params {"printServer":"127.0.0.1:1"}
+{"command":"file.print.printers","result":{"default":null,"note":"no print server at 127.0.0.1:1","printers":[],"server":null}}
